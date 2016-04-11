@@ -1,0 +1,12 @@
+<h3 class="vote__title">My Heroes</h3>
+
+<div class="form-container">
+  {{#each model as |hero|}}
+  <form class="col col-xs-4">
+    <h5 class="vote-form__hero">{{hero.name}}</h5>
+    <p class="vote-form__score">{{hero.score}}</p>
+    <button {{action upVoteHero on="click"}} class="btn btn-success">YAY!</button>
+    <button {{action downVoteHero on="click"}} class="btn btn-danger">boo</button>
+  </form>
+  {{/each}}
+</div>
