@@ -14,7 +14,7 @@ function replace(arr, item) {
 }
 
 export default Ember.Service.extend({
-  apiUrl: `https://tiny-tn.herokuapp.com/collections/heroes`,
+  apiUrl: `https://tiny-tn.herokuapp.com/collections/sj-heroes`,
   store: [],
   loaded: false,
 
