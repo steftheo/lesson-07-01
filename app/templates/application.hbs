@@ -9,11 +9,13 @@
     <div class="col-md-12">
       {{#link-to "index" class="btn btn-info"}}dashboard{{/link-to}}
     </div>
+    {{#link-to "new"}}
+    <button class="btn btn-default" type="button">New Hero</button>
+    {{/link-to}}
   </div>
-
-  {{outlet}}
 </div>
 
 <footer class="names">
   <p>Stefan "Smash Bros. Champion" Theofilos and John "Not Adams" Adam</p>
 </footer>
+{{outlet}}

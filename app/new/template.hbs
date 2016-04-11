@@ -1,1 +1,7 @@
-{{outlet}}
+<h3 class="new__title">New Hero</h3>
+<li>
+<form {{action addNewHero on="submit"}}>
+  {{input type="text" placeholder="Enter Hero Name" class="new-hero__input" value=name}}
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>
+</li>
