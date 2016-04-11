@@ -6,10 +6,15 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-4">
       {{#link-to "index" class="btn btn-info"}}dashboard{{/link-to}}
+    {{#link-to "new" class="btn btn-primary"}}New Hero{{/link-to}}
+    {{#link-to "vote" class="btn btn-info"}}Vote{{/link-to}}
     </div>
   </div>
-
   {{outlet}}
 </div>
+
+<footer class="names">
+  <p>Stefan "Smash Bros. Champion" Theofilos and John "Not Adams" Adam</p>
+</footer>

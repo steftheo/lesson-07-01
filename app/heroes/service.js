@@ -14,7 +14,7 @@ function replace(arr, item) {
 }
 
 export default Ember.Service.extend({
-  apiUrl: `https://tiny-tn.herokuapp.com/collections/heroes`,
+  apiUrl: `https://tiny-tn.herokuapp.com/collections/sj-heroes`,
   store: [],
   loaded: false,
 
@@ -62,5 +62,29 @@ export default Ember.Service.extend({
     }).then((result) => {
       this.set(`store`, replace(this.store, result));
     });
-  }
+  },
+
+  addNewHero(hero) {
+    fetch(apiUrl, {
+      method: `POST`,
+      headers: {
+        Accept: `application/json`,
+        'Content-type': `application/json`,
+      },
+      body: JSON.stringify(hero),
+        }).then((response) => response.json())
+      .then((data) => {
+        this.saveNewHero(data);
+        this.clearForm();
+        this.transitionToRoute(`index`);
+      });
+  },
+
+  saveNewHero(hero) {
+    this.set(`model`, [hero, ...this.model]);
+  },
+
+  clearForm() {
+    this.set(`name`, ``);
+  },
 });
