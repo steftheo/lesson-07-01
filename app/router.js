@@ -2,15 +2,14 @@ import Ember from 'ember';
 import config from './config/environment';
 
 const Router = Ember.Router.extend({
-  location: config.locationType
+  location: config.locationType,
 });
 
 Router.map(function() {
-  this.route('new');
+  this.route(`new`);
 
-  this.route('edit', {
-    path: '/:_id'
-  });
+  this.route(`edit`, { path: `/:_id` });
+  this.route(`heroes`);
 });
 
 export default Router;

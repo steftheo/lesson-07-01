@@ -1,1 +1,7 @@
-{{outlet}}
+<div class="row">
+  {{#each model as |hero|}}
+    <div class="col col-xs-4 col-md-3">
+      <p class="hero-grid-item">{{hero.name}}</p>
+    </div>
+  {{/each}}
+</div>
