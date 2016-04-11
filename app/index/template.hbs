@@ -1,7 +1,9 @@
 <div class="row">
   {{#each model as |hero|}}
     <div class="col col-xs-4 col-md-3">
-      <p class="hero-grid-item">{{hero.name}}</p>
+      <p class="hero-grid-item">
+        {{#link-to "edit" hero._id}}{{hero.name}}{{/link-to}}
+      </p>
     </div>
   {{/each}}
 </div>
