@@ -1,1 +1,19 @@
-{{outlet}}
+<div class="row">
+  <div class="col-sm-12">
+    <form {{action saveHero model on="submit"}}>
+      <h2>Editing</h2>
+
+      <p>ID: {{model._id}}</p>
+
+      <p>
+        Name: {{input value=model.name}}
+      </p>
+
+      <div class="actions">
+        {{#link-to "index" class="btn btn-info"}}Back{{/link-to}}
+
+        <button class="btn-primary btn">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
