@@ -34,6 +34,21 @@ export default Ember.Service.extend({
       });
   },
 
+  findById(id) {
+    const existing = this.store.find((hero) => {
+      return hero._id === id;
+    });
+
+    if (existing) {
+      return existing;
+    }
+
+    return fetch(`https://tiny-tn.herokuapp.com/collections/heroes/${id}`)
+      .then((res) => {
+        return res.json();
+      });
+  },
+
   update(hero) {
     return fetch(`https://tiny-tn.herokuapp.com/collections/heroes/${hero._id}`, {
       method: `PUT`,

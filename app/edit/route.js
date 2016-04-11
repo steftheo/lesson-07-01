@@ -1,10 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  heroes: Ember.inject.service(`heroes`),
+
   model(params) {
-    return fetch(`https://tiny-tn.herokuapp.com/collections/heroes/${params._id}`)
-      .then((res) => {
-        return res.json();
-      });
+    return this.get(`heroes`).findById(params._id);
   }
 });
