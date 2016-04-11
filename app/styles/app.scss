@@ -1,9 +1,23 @@
 @import 'bootstrap-flex';
 
 .hero-grid-item {
+  width: 10rem;
   padding: 2rem 0;
   text-align: center;
   background: #3fb0ad;
   color: #dfdfdf;
   width: 100%;
+}
+
+.names {
+  margin: 0 auto;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+
+  width: 20rem;
 }
