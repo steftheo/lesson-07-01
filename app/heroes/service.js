@@ -1,23 +1,51 @@
 import Ember from 'ember';
 
+function replace(arr, item) {
+  return arr.reduce((carry, curr) => {
+    // Check if this is the item we are trying to replace
+    if (curr._id === item._id) {
+      // Add the replace value to the end of the snoball
+      return [...carry, item];
+    }
+
+    // Add the current item to the end of the snoball
+    return [...carry, curr];
+  }, []);
+}
+
 export default Ember.Service.extend({
   apiUrl: `https://tiny-tn.herokuapp.com/collections/heroes`,
-  data: [],
+  store: [],
   loaded: false,
 
   findAll() {
     if (this.loaded) {
-      return this.data;
+      return this.store;
     }
 
     return fetch(this.apiUrl)
       .then((res) => {
         return res.json();
       }).then((result) => {
-        this.set(`data`, result);
+        this.set(`store`, result);
         this.set(`loaded`, true);
 
         return result;
       });
   },
+
+  update(hero) {
+    return fetch(`https://tiny-tn.herokuapp.com/collections/heroes/${hero._id}`, {
+      method: `PUT`,
+      headers: {
+        Accept: `application/json`,
+        'Content-Type': `application/json`,
+      },
+      body: JSON.stringify(hero),
+    }).then((res) => {
+      return res.json();
+    }).then((result) => {
+      this.set(`store`, replace(this.store, result));
+    });
+  }
 });
